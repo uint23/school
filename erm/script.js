@@ -48,10 +48,10 @@ function configureProjectBanner() {
     
     // XWM project data
     const xwmProject = {
-        title: 'XWM - X11 Tiling Window Manager',
-        tagline: 'Lightweight & Minimal',
-        description: 'A simple, customizable window manager for X11 built with efficiency and speed in mind. Name Undecided',
-        repoUrl: 'https://github.com/uint23/xlibwm',
+        title: 'sxwm - simple xorg tiling window manager',
+        tagline: 'Lightweight & Easiy Configureable',
+        description: 'A simple, customizable window manager for X11 built with efficiency and speed in mind.',
+        repoUrl: 'https://github.com/uint23/sxwm',
         imageUrl: 'images/project_pics/xlibwm_1.png'
     };
     
@@ -72,7 +72,7 @@ function configureProjectBanner() {
                         </svg>
                         View on GitHub
                     </a>
-                    <a href="https://github.com/uint23/xlibwm/blob/main/README.md" class="learn-more-button">Learn More</a>
+                    <a href="https://github.com/uint23/sxwm/blob/main/README.md" class="learn-more-button">Learn More</a>
                 </div>
             </div>
             <div class="project-image">

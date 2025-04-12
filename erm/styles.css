@@ -1,0 +1,592 @@
+/* Core Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+    nav a {
+        padding: 5px;
+        font-size: 11px;
+    }
+}
+
+/* Page Background */
+body {
+    background-color: #111;
+    image-rendering: pixelated;
+    background-image: url('images/check.png');
+    background-size: 100px 100px; /* Adjust to your tile size */
+    background-repeat: repeat;
+    animation: scrollCats var(--scroll-speed, 1s) linear infinite;
+    font-family: Tahoma, Arial, sans-serif;
+    color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+
+    transition: background-image 0.8s ease, background-color 0.8s ease;
+}
+
+/* Keyframes to move the background down */
+@keyframes scrollCats {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 0 500px; /* Or however tall you want the loop to be */
+    }
+}
+
+/* Main Wrapper */
+#wrapper {
+    background-color: #1a1a1a;
+    width: 100%;
+    max-width: 900px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
+}
+
+.ascii-banner {
+    font-family: monospace;
+    overflow: hidden;
+    text-align: center;
+    font-size: 11px;  /* Decrease for better fit */
+    line-height: 11px; /* Reduce vertical spacing */
+    color: #ddd; /* Light color for visibility */
+    background: black; /* Ensure background is black */
+    padding: 0; /* Remove padding */
+    width: 100%;
+    height: 100%;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.site-header {
+    text-align: center;
+    padding: 10px 0;
+    background: linear-gradient(to bottom, #2a2a2a, #1a1a1a);
+    border-bottom: 1px solid #444;
+}
+
+.site-header img {
+    min-width: 100%;
+	max-width: 100%;
+    min-height: auto;
+}
+
+
+/* Header */
+header {
+    position: relative;
+    background: linear-gradient(to bottom, #2a2a2a, #1a1a1a);
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #444;
+}
+
+header h1 {
+    font-size: 24px;
+    color: #ffffff;
+}
+
+header p {
+    font-size: 12px;
+    color: #888;
+}
+
+/* Header Tools (Theme Selector as Underlined Text) */
+.header-tools {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.header-tools button {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 12px;
+    color: #ccc;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.header-tools button:hover {
+    color: #fff;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(to bottom, #1a1a1a, #2a2a2a);
+    border: 1px solid #323232;
+    padding: 3px 0;
+    gap: 1px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    padding: 5px 10px;
+    background: linear-gradient(to bottom, #1a1a1a, #2a2a2a);
+    border: 1px solid #555;
+    color: #ccc;
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 1px 2px rgba(0,0,0,0.5);
+    transition: background 0.2s ease, color 0.2s ease;
+    flex: 1 1 auto;
+    max-width: 120px;
+}
+
+nav a:hover {
+    background: linear-gradient(to bottom, #555, #333);
+    color: white;
+}
+
+/*???
+
+/* Main Content Sections */
+main {
+    padding: 15px;
+}
+
+section {
+    background: #1f1f1f;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #333;
+    border-radius: 3px;
+}
+
+h2 {
+    font-size: 18px;
+    color: #ffffff;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 5px;
+}
+
+p, li {
+    font-size: 14px;
+    color: #ccc;
+    line-height: 1.5;
+}
+
+ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+a {
+    color: #e63946;
+    text-decoration: none;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    padding: 10px;
+    border-top: 1px solid #444;
+    background: #222;
+}
+
+/* Popup Window - Styled like your header */
+.theme-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    background-color: #1a1a1a;
+    border: 1px solid #444;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    font-family: Tahoma, Arial, sans-serif;
+    z-index: 1000;
+    display: none;
+}
+
+/* Title Bar */
+.theme-popup-titlebar {
+    background: linear-gradient(to bottom, #2a2a2a, #1a1a1a); /* Same as header */
+    color: white;
+    padding: 5px 10px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Close Button */
+.theme-popup-titlebar button {
+    background: #00000000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Content Area */
+.theme-popup-content {
+    background: #1f1f1f;
+    padding: 10px;
+}
+
+/* List Styling */
+.theme-popup-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Wallpaper items */
+.theme-popup-content li {
+    position: relative;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #ccc;
+    background-color: #222;
+    border: 1px solid #333;
+    cursor: pointer;
+    overflow: hidden;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    margin-bottom: 5px;
+}
+
+/* Text always on top */
+.theme-popup-content li span {
+    position: relative;
+    z-index: 2;
+}
+
+/* Background preview container (hidden initially) */
+.theme-popup-content li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 100px 100px;
+    background-repeat: repeat;
+    opacity: 0;
+    filter: blur(5px);
+    transition: opacity 0.3s ease, filter 0.3s ease;
+    z-index: 1;
+}
+
+/* Specific previews for each theme */
+.theme-popup-content li[data-theme="check"]::before {
+    background-image: url('images/check.png');
+}
+
+.theme-popup-content li[data-theme="cats"]::before {
+    background-image: url('images/cats.png');
+}
+
+.theme-popup-content li[data-theme="stars"]::before {
+    background-image: url('images/stars.png');
+}
+
+.theme-popup-content li[data-theme="circuits"]::before {
+    background-image: url('images/circuits.png');
+}
+
+/* Hover effect - fade in & sharpen */
+.theme-popup-content li:hover::before {
+    opacity: 1;
+    filter: blur(0px);
+}
+
+/* Optional - make the text pop on hover */
+.theme-popup-content li:hover {
+    color: #fff;
+}
+
+
+
+.scroll-speed-control {
+    margin-top: 10px;
+    padding: 5px;
+    background: #222;
+    border: 1px solid #333;
+    text-align: center;
+    color: #ccc;
+    font-size: 14px;
+}
+
+.scroll-speed-control label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.scroll-speed-control input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    background: #333;
+    border: 1px solid #555;
+    outline: none;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.scroll-speed-control input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 18px;
+    background: linear-gradient(to bottom, #555, #222);
+    border: 1px solid #777;
+    cursor: pointer;
+    box-shadow: 0 0 3px rgba(0,0,0,0.5);
+}
+
+.scroll-speed-control input[type="range"]:hover::-webkit-slider-thumb {
+    background: linear-gradient(to bottom, #666, #333);
+}
+
+.scroll-speed-control input[type="range"]::-moz-range-thumb {
+    width: 12px;
+    height: 18px;
+    background: linear-gradient(to bottom, #555, #222);
+    border: 1px solid #777;
+    cursor: pointer;
+    box-shadow: 0 0 3px rgba(0,0,0,0.5);
+}
+
+.scroll-speed-control input[type="range"]:hover::-moz-range-thumb {
+    background: linear-gradient(to bottom, #666, #333);
+}
+
+.project-banner {
+    padding: 30px 15px;  /* Keep the current vertical padding */
+    background: linear-gradient(to bottom, #2a2a2a, #1a1a1a);
+    border: 1px solid #444;
+    border-radius: 3px;
+    margin: 10px 15px 10px 15px; /* Add margins on all sides */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Add a current project indicator */
+.current-project-indicator {
+    display: inline-block;
+    background-color: #222;
+    border: 1px solid #444;
+    border-radius: 2px;
+    padding: 1px 6px;
+    margin-bottom: 8px; /* Increased from 5px */
+    font-size: 11px;
+    font-weight: bold;
+    color: #e63946;
+    text-transform: uppercase;
+}
+
+.current-project-indicator::before {
+    content: "● ";
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+/* Update button hover styles to use site's red color */
+.github-button:hover, .learn-more-button:hover {
+    background: linear-gradient(to bottom, #e63946, #c62b38);
+    color: white;
+    border-color: #e63946;
+}
+
+/* Increase height of project info section */
+.project-info {
+    flex: 1;
+    text-align: left;
+    min-height: 180px; /* Increased from 150px */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    gap: 15px; /* Add gap between top content and actions */
+}
+
+.project-image {
+    flex: 0 0 auto;  /* Don't grow or shrink, keep to natural size */
+    max-width: 40%;  /* Keep percentage width for layout */
+    border: 1px solid #444;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;  /* Add some padding inside the frame */
+    background: #1a1a1a;  /* Match site background */
+    height: auto;  /* Remove fixed height, let it be determined by content */
+}
+
+.project-image img {
+    max-width: 100%;
+    max-height: 400px;  /* Set max height on the image instead of the container */
+    width: auto;      
+    height: auto;     
+    object-fit: contain;
+    display: block;
+}
+
+.project-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    min-height: 200px;
+}
+
+.project-info h1 {
+    font-size: 28px;  /* Increased from 24px */
+    margin: 0 0 8px 0; 
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.project-info .tagline {
+    font-size: 16px;  /* Increased from 14px */
+    color: #e63946;
+    margin: 0 0 10px 0; 
+    font-weight: bold;
+}
+
+.project-info .description {
+    color: #ccc;
+    margin-bottom: 12px;
+    line-height: 1.5;
+    font-size: 14px;  /* Increased from 12px */
+}
+
+.project-actions {
+    display: flex;
+    gap: 5px;
+}
+
+.github-button, .learn-more-button {
+    padding: 4px 10px;  /* Slightly larger padding */
+    background: linear-gradient(to bottom, #1a1a1a, #2a2a2a);
+    border: 1px solid #555;
+    color: #ccc;
+    font-weight: bold;
+    font-size: 13px;  /* Increased from 12px */
+    text-decoration: none;
+    text-align: center;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 1px 2px rgba(0,0,0,0.5);
+    transition: background 0.2s ease, color 0.2s ease;
+    border-radius: 2px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.github-button:hover, .learn-more-button:hover {
+    background: linear-gradient(to bottom, #e63946, #c62b38);
+    color: white;
+    border-color: #e63946;
+}
+
+@media (max-width: 768px) {
+    .project-content {
+        flex-direction: column;
+    }
+    
+    .project-image {
+        max-width: 100%;
+        order: -1;
+    }
+}
+
+.retro-glow-text {
+    font-family: "Courier New", monospace;
+    font-size: 36px;
+    color: #e63946;
+    text-shadow: 0 0 5px #66171d, 0 0 10px #e63946;
+    letter-spacing: 2px;
+    text-align: center;
+    margin: 20px 0 5px 0;
+}
+
+.retro-subtitle {
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+    color: #ccc;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+/* Skills section styling */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.skills-group {
+    flex: 1 1 calc(50% - 15px);
+    background: #1a1a1a;
+    border: 1px solid #333;
+    padding: 12px;
+    min-width: 200px;
+}
+
+.skills-group h3 {
+    font-size: 16px;
+    color: #e63946;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 4px;
+}
+
+.skill-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.skill-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    padding: 4px;
+}
+
+.skill-list li:hover {
+    background-color: #222;
+}
+
+/* Style Font Awesome icons */
+.skill-icon {
+    font-size: 20px;  /* Consistent icon size */
+    color: #e63946;   /* Keep your site's red color */
+    margin-right: 10px;
+    width: 24px;      /* Fixed width to ensure alignment */
+    text-align: center;
+}
+
+.skill-list li span {
+    color: #ccc;
+}
+

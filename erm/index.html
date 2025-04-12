@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Add Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div id="wrapper" class="theme-dark">
+        <header class="site-header">
+            <h1 class="retro-glow-text">uint23.xyz</h1>
+            <p class="retro-subtitle">Software Developer</p>
+        </header>
+        <nav>
+            <a href="#about">About Me</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+            <a href="#" id="openThemeMenu" class="nav-link">! Wallpapers</a>
+        </nav>
+        
+        <!-- Moved project banner here, after the navigation -->
+        <div id="project-banner" class="project-banner">
+            <!-- Dynamic project content will be inserted here -->
+        </div>
+        
+        <!-- Popup Window (hidden by default) -->
+        <div id="themePopup" class="theme-popup">
+            <div class="theme-popup-titlebar">
+                <span>Select Wallpaper</span>
+                <button id="closeThemeMenu">X</button>
+            </div>
+            <div class="theme-popup-content">
+                <ul>
+                    <li data-theme="check"><span>check.png</span></li>
+                    <li data-theme="cats"><span>cats.png</span></li>
+                    <li data-theme="stars"><span>stars.png</span></li>
+                    <li data-theme="circuits"><span>circuits.png</span></li>
+                </ul>                
+                <div class="scroll-speed-control">
+                    <label for="scrollSpeed">Scroll Speed <span id="scrollSpeedLabel">50%</span></label>
+                    <input type="range" id="scrollSpeed" min="0" max="50" value="25">
+                </div>                              
+            </div>
+        </div>
+        
+        <main>
+            <section id="about">
+                <h2>About Me</h2>
+                <p>Welcome to my portfolio. I’m a 16 year old programmer.</p>
+            </section>
+
+            <section id="skills">
+                <h2>Skills</h2>
+                <div class="skills-container">
+                    <div class="skills-group">
+                        <h3>Web Development</h3>
+                        <ul class="skill-list">
+                            <li>
+                                <i class="fa-brands fa-html5 skill-icon"></i>
+                                <span>HTML</span>
+                            </li>
+                            <li>
+                                <i class="fa-brands fa-css3-alt skill-icon"></i>
+                                <span>CSS</span>
+                            </li>
+                            <li>
+                                <i class="fa-brands fa-js skill-icon"></i>
+                                <span>JavaScript</span>
+                            </li>
+                            <li>
+                                <i class="fa-brands fa-react skill-icon"></i>
+                                <span>React Native</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skills-group">
+                        <h3>Programming Languages</h3>
+                        <ul class="skill-list">
+                            <li>
+                                <i class="fa-brands fa-python skill-icon"></i>
+                                <span>Python</span>
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-code skill-icon"></i>
+                                <span>C</span>
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-code skill-icon"></i>
+                                <span>C++</span>
+                            </li>
+                            <li>
+                                <i class="fa-brands fa-rust skill-icon"></i>
+                                <span>Rust :(</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skills-group">
+                        <h3>Operating Systems</h3>
+                        <ul class="skill-list">
+                            <li>
+                                <i class="fa-brands fa-linux skill-icon"></i>
+                                <span>Linux</span>
+                            </li>
+                            <li>
+                                <i class="fa-brands fa-windows skill-icon"></i>
+                                <span>Windows</span>
+                            </li>
+                            <li>
+                                <i class="fa-brands fa-apple skill-icon"></i>
+                                <span>MacOS</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skills-group">
+                        <h3>Tools</h3>
+                        <ul class="skill-list">
+                            <li>
+                                <i class="fa-brands fa-git-alt skill-icon"></i>
+                                <span>Git</span>
+                            </li>
+                            <li>
+                                <i class="fa-brands fa-github skill-icon"></i>
+                                <span>GitHub</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects">
+                <h2>Projects</h2>
+                <ul>
+                    <li><a href="https://uint23.xyz/">Portfolio Website</a></li>
+                    <li><a href="https://github.com/uint23/xlibwm">X11 Tiling Window Manager (Name Undecided)</a></li>
+                </ul>
+            </section>
+
+            <section id="contact">
+                <h2>Contact Me</h2>
+                <p>Email: <a href="mailto:abhinav.prsai@gmail.com">abhinav.prsai@gmail.com</a></p>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 - Abhinav Prasai</p>
+        </footer>
+    </div>
+</body>
+</html>
